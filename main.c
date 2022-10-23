@@ -16,24 +16,7 @@ printf("                                                 nome da empresa        
 printf("---------------------------------------------------------------------------------------------------------------------\n");
 }
 
-
-void menuInicial(){
-    Cabecalho();
-    int op;
-    printf(" ### Menu inicial ### \n");
-    printf("O que voce gostaria de realizar: \n");
-    printf("[0]Sair \n[1]Cadastrar-se \n[2]Gerar Cardapio \n");
-    scanf("%d", &op);
-    while(op < 0 || op > 2){
-        printf("Opcao invalida, insira outro valor: ");
-        scanf("%d", &op);
-    }
-    switch(op){
-    case 0:
-        printf("Funcao ainda nao desenvolvida!");
-        //sair do programa.
-        break;
-    case 1:
+Cliente CadastroCliente(){
         fflush(stdin);
         Cliente clienteNovo;
         system("cls");
@@ -49,7 +32,7 @@ void menuInicial(){
         gets(clienteNovo.nome);
         printf("Informe sua idade: \n");
         scanf("%d", &clienteNovo.idade);
-        while(clienteNovo.idade <= 0 || clienteNovo.idade => 130){
+        while(clienteNovo.idade <= 0 || clienteNovo.idade > 130){
             printf("Idade inválida informada, informe novamente: \n");
              scanf("%d", &clienteNovo.idade);
         }
@@ -73,28 +56,48 @@ void menuInicial(){
         }
         printf("Informe sua altura |em cm|: \n");
         scanf("%f", &clienteNovo.altura);
-        while(clienteNovo.altura <= 0){
+        while(clienteNovo.altura <= 0 || clienteNovo.altura > 300){
             printf("Altura inválida, informe novamente em cm: ");
             scanf("%f", &clienteNovo.altura);
-        }
+        } //fazer metodos de definir tipos de cardapios prontos.
+        return clienteNovo;
+}
+void menuInicial(){
+    Cabecalho();
+    int op;
+    printf(" ### Menu inicial ### \n");
+    printf("O que voce gostaria de realizar: \n");
+    printf("[0]Sair \n[1]Cadastrar-se \n[2]Gerar Cardapio \n");
+    scanf("%d", &op);
+    while(op < 0 || op > 2){
+        printf("Opcao invalida, insira outro valor: ");
+        scanf("%d", &op);
+    }
+    switch(op){
+    case 0:
+        printf("Funcao ainda nao desenvolvida!");
+        //sair do programa.
+        break;
+    case 1: ;
+        Cliente clienteCadastrado;
+        clienteCadastrado = CadastroCliente();
         break;
     case 2:
         printf("Funcao ainda nao desenvolvida!");
         //verificar o cpf do cliente, se existir mostrar o valor dele, se nao avisar que nao esta cadastrado e voltar ao menu.
+        break;
     default:
         break;
     }
 }
-
-void main()
+void main()//passar vetor como ponteiro!!
 {
     setlocale(LC_ALL, "Portuguese");
-    Cliente clientes[1000];
+    Cliente ListaClientes[1000];
     Cabecalho();
     printf("Bem vindo a -nome da empresa-\n");
     system("pause");
     system("cls");
     fflush(stdin);
     menuInicial();
-
 }
