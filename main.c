@@ -9,7 +9,7 @@ typedef struct{
 	char cpf[50], nome[50], email[50], sexo;
 	float altura, peso;
 }Cliente;
-
+//criar strutc de cardapio, onde, de acordo com uma conta 'peso altura sexo', ele recebera um tipo de variacao de comida.
 void Cabecalho(){
 printf("---------------------------------------------------------------------------------------------------------------------\n");
 printf("                                                 nome da empresa                                                     \n");
@@ -46,6 +46,7 @@ Cliente CadastroCliente(){
         while(clienteNovo.sexo != 'M' && clienteNovo.sexo != 'F'){
             printf("Sexo invalido informado, informe novamente: \n");
             scanf("%c", &clienteNovo.sexo);
+            fflush(stdin);
         }
         fflush(stdin);
         printf("Informe seu peso: \n");
@@ -62,7 +63,9 @@ Cliente CadastroCliente(){
         } //fazer metodos de definir tipos de cardapios prontos.
         return clienteNovo;
 }
-void menuInicial(){
+
+void menuInicial(Cliente *ListaClientes){
+    system("cls");
     Cabecalho();
     int op;
     printf(" ### Menu inicial ### \n");
@@ -75,15 +78,27 @@ void menuInicial(){
     }
     switch(op){
     case 0:
-        printf("Funcao ainda nao desenvolvida!");
+        printf("Funcao ainda nao desenvolvida!\n");
+        system("pause");
+        menuInicial(ListaClientes);
         //sair do programa.
         break;
     case 1: ;
         Cliente clienteCadastrado;
-        clienteCadastrado = CadastroCliente();
+        clienteCadastrado = CadastroCliente(*ListaClientes);
+        for(int i = 0;i < 1000; i++){
+            if(ListaClientes[i].cpf == 0){
+                ListaClientes[i] = clienteCadastrado;
+                i = 1002;
+            }
+        }
+        printf("Cliente cadastrado com sucesso, para ver o seu cardapio, vá ao menu 'Gerar Cardapio\n");
+        system("pause");
         break;
     case 2:
-        printf("Funcao ainda nao desenvolvida!");
+        printf("Funcao ainda nao desenvolvida!\n");
+        system("pause");
+        menuInicial(ListaClientes);
         //verificar o cpf do cliente, se existir mostrar o valor dele, se nao avisar que nao esta cadastrado e voltar ao menu.
         break;
     default:
@@ -99,5 +114,5 @@ void main()//passar vetor como ponteiro!!
     system("pause");
     system("cls");
     fflush(stdin);
-    menuInicial();
+    menuInicial(ListaClientes);
 }
