@@ -1,9 +1,16 @@
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <locale.h>
+
 #include <string.h>
+
 #include <ctype.h>
+
 #include <math.h>
+
+#define MaxFuncionario 4
 
 typedef struct {
   int caloriaDia, cardapio;
@@ -19,8 +26,8 @@ typedef struct {
 Cliente;
 
 typedef struct {
-  int idade, telefone;
-  char cpf[50], nome[50], email[50], sexo;
+  int idade, telefone, id, cargo;
+  char cpf[50], nome[50], email[50];
   float salario;
 }
 Funcionario;
@@ -126,6 +133,21 @@ Cliente CadastroCliente() {
   return clienteNovo;
 }
 
+Funcionario preencher(Funcionario * funcionario) {
+  char nome[50] = "jose";
+  char cpf[12] = "485949";
+  char email[50] = "ujoseeeejosejose";
+  char sexo = 'M';
+  strncpy(funcionario[0].nome, nome, 50);
+  strncpy(funcionario[0].cpf, cpf, 50);
+  strncpy(funcionario[0].email, email, 50);
+  funcionario[0].id = 1;
+  funcionario[0].telefone = 909090;
+  funcionario[0].idade = 23;
+  funcionario[0].salario = 900;
+  return funcionario[0];
+}
+
 void FazerLogin() {
   char login[15] = "admin", login1[15], senha[15] = "admin", senha1[15];
   do {
@@ -155,9 +177,14 @@ void Pause() {
 
 void main() {
   setlocale(LC_ALL, "Portuguese");
-  int escolha, op, i;
+  int escolha, op, i, retorno, opbusca, achou;
+  float sm = 1212;
+  char nomeBusca[50], cpf[50], email[50], nome[50];
+
   Cliente ListaClientes[20];
-  Funcionario ListaFuncionarios[10];
+  Funcionario ListaFuncionarios[MaxFuncionario], funcionarioNovo;
+  ListaFuncionarios[0] = preencher(ListaFuncionarios);
+
   do {
     Cabecalho();
     printf("Bem vindo a Fast Diet\n");
@@ -176,11 +203,223 @@ void main() {
     switch (escolha) {
     case 1:
       do {
-        printf("## FUNCIONARIO ##");
-        Pause();
-        //seu swicht
-        //tudo dentro do while
-        //op 0 para sair
+        opbusca = 0;
+        system("cls");
+        Cabecalho();
+        printf(" ### Menu inicial Funcionario ### \n");
+        printf("O que voce gostaria de realizar: \n");
+        printf("[0]Voltar \n[1]Cadastrar Funcionario \n[2]Localizar Funcionario \n");
+        printf("[3]Editar \n[4]Relatorio de Funcionarios \n[5]Relatorio de Salarios\n");
+        scanf("%d", & op);
+        while (op < 0 || op > 5) {
+          printf("Opcao invalida, insira outro valor: ");
+          scanf("%d", & op);
+        }
+        switch (op) {
+        case 1:
+          system("cls");
+          for (i = 0; i < MaxFuncionario; i++) {
+
+            if (ListaFuncionarios[i].id != 1) {
+              fflush(stdin);
+              system("cls");
+              Cabecalho();
+              printf("### Menu de registro ###\n");
+              printf("Insira as informações do funcionario de acordo com o pedido: \n");
+              printf("--------------------------------------------------------------\n");
+              printf("\nNome: ");
+              gets(nome);
+              strncpy(funcionarioNovo.nome, nome, 50);
+              fflush(stdin);
+              printf("\nCPF: ");
+              gets(cpf);
+              strncpy(funcionarioNovo.cpf, cpf, 50);
+              fflush(stdin);
+              printf("\nEmail: ");
+              gets(email);
+              strncpy(funcionarioNovo.email, email, 50);
+              fflush(stdin);
+              printf("\nTelefone: ");
+              scanf("%d", & funcionarioNovo.telefone);
+              fflush(stdin);
+              printf("\nIdade: ");
+              scanf("%d", & funcionarioNovo.idade);
+              while (funcionarioNovo.idade <= 0 || funcionarioNovo.idade > 130) {
+                fflush(stdin);
+                printf("Idade informada invalida, informe novamente: \n");
+                scanf("%d", funcionarioNovo.idade);
+              }
+
+              fflush(stdin);
+              printf("\nInforme a pontuação do cargo: ");
+              scanf("%d", & funcionarioNovo.cargo);
+              while (funcionarioNovo.cargo < 1 && funcionarioNovo.cargo > 5) {
+                printf("\nValor invalido, tente novamente: \n");
+                scanf("%d", & funcionarioNovo.cargo);
+              }
+              funcionarioNovo.salario = sm + (1500 * funcionarioNovo.cargo / 2);
+              printf("\nSalario: %.2f\n", funcionarioNovo.salario);
+              fflush(stdin);
+              funcionarioNovo.id = 1;
+              ListaFuncionarios[i] = funcionarioNovo;
+              i = MaxFuncionario;
+            }
+          }
+
+          break;
+        case 2:
+          system("cls");
+          Cabecalho();
+          fflush(stdin);
+          printf("\nDeseja buscar por: |[1]-nome| ou |[2]-cpf| \n");
+          scanf("%d", & opbusca);
+          while (opbusca < 1 && opbusca > 2) {
+            system("cls");
+            printf("\nOpcao invalida!");
+            system("pause");
+            printf("\nDeseja buscar por: |[1]-nome| ou |[2]-cpf| \n");
+            scanf("%d", & opbusca);
+          }
+
+          switch (opbusca) {
+          case 1:
+            fflush(stdin);
+            printf("\nDigite o nome do funcionario: ");
+            gets(nomeBusca);
+            printf("\nExibindo Funcionario(s) com nome: %s", nomeBusca);
+
+            for (i = 0; i < MaxFuncionario; i++) {
+              if (strcmp(nomeBusca, ListaFuncionarios[i].nome) == 0 && ListaFuncionarios[i].id == 1) {
+                printf("\nNome: %s", ListaFuncionarios[i].nome);
+                printf("\nCPF: %s", ListaFuncionarios[i].cpf);
+                printf("\nIdade: %d", ListaFuncionarios[i].idade);
+                printf("\nEmail: %s", ListaFuncionarios[i].email);
+                printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
+                printf("\nSalario: %.2f\n", ListaFuncionarios[i].salario);
+                retorno = 1;
+
+              } else if (i + 1 == MaxFuncionario && retorno != 1) {
+                printf("\nNome não encontrado...\n");
+              }
+
+            }
+            break;
+          case 2:
+            fflush(stdin);
+            printf("\nDigite o CPF do funcionario: ");
+            gets(cpf);
+            printf("\nExibindo Funcionario com cpf: %s", cpf);
+
+            for (i = 0; i < MaxFuncionario; i++) {
+              if (strcmp(cpf, ListaFuncionarios[i].cpf) == 0 && ListaFuncionarios[i].id == 1) {
+                printf("\nNome: %s", ListaFuncionarios[i].nome);
+                printf("\nCPF: %s", ListaFuncionarios[i].cpf);
+
+                printf("\nIdade: %d", ListaFuncionarios[i].idade);
+                printf("\nEmail: %s", ListaFuncionarios[i].email);
+                printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
+                printf("\nSalario: %.2f\n", ListaFuncionarios[i].salario);
+                retorno = 1;
+              } else if (i + 1 == MaxFuncionario && retorno != 1) {
+                printf("\nCPF não encontrado...\n");
+              }
+            }
+            break;
+          default:
+            printf("\nValor Invalido...\n");
+            break;
+          }
+          break; //fim da opcao 2 (buscar)
+        case 3:
+          system("cls");
+          fflush(stdin);
+          achou = 0;
+          printf("Dgite o CPF do Funcionario que voce deseja editar: \n");
+          gets(cpf);
+
+          for (i = 0; i < MaxFuncionario; i++) {
+            fflush(stdin);
+            if (strcmp(cpf, ListaFuncionarios[i].cpf) == 0) {
+
+              printf("\nNome: %s", ListaFuncionarios[i].nome);
+              printf("\nCPF: %s", ListaFuncionarios[i].cpf);
+              printf("\nIdade: %d", ListaFuncionarios[i].idade);
+              printf("\nEmail: %s", ListaFuncionarios[i].email);
+              printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
+              printf("\nSalario: %.2f", ListaFuncionarios[i].salario);
+
+              fflush(stdin);
+              achou = 1;
+              printf("\nQual informação deseja alterar ?");
+              printf("\n[1]-Nome");
+              printf("\n[2]-Email");
+              printf("\n[3]-Telefone");
+              printf("\n[4]-Idade");
+              printf("\n[5]-Salario");
+              scanf("%d", & opbusca);
+              fflush(stdin);
+              while (opbusca < 1 && opbusca > 5) {
+                printf("\nValor inválido, informe uma valor entre [1] e [5]: ");
+                scanf("%d", & opbusca);
+              }
+              if (opbusca == 1) {
+                fflush(stdin);
+                printf("\nDigite a nova informação: ");
+                gets(ListaFuncionarios[i].nome);
+
+                printf("Informação atualizada!\n");
+              }
+              if (opbusca == 2) {
+                fflush(stdin);
+                printf("\nDigite a nova informação: ");
+                gets(ListaFuncionarios[i].email);
+
+                printf("Informação atualizada!\n");
+              }
+              if (opbusca == 3) {
+                fflush(stdin);
+                printf("\nDigite a nova informação: ");
+                scanf("%d", & ListaFuncionarios[i].telefone);
+                printf("Informação atualizada!\n");
+              }
+              if (opbusca == 4) {
+                fflush(stdin);
+                printf("\nDigite a nova informação: ");
+                scanf("%d", & ListaFuncionarios[i].idade);
+                printf("Informação atualizada!\n");
+              }
+              if (opbusca == 5) {
+                fflush(stdin);
+                printf("\nDigite a nova informação: ");
+                scanf("%f", & ListaFuncionarios[i].salario);
+                printf("Informação atualizada!\n");
+              }
+              i = MaxFuncionario;
+
+            }
+          }
+          if (achou == 0) {
+            printf("\nCPF não encontrado...\n");
+          }
+          break;
+        case 4:
+          system("cls");
+          fflush(stdin);
+          for (i = 0; i < MaxFuncionario; i++) {
+            if (ListaFuncionarios[i].id == 1) {
+
+              printf("\nNome: %s", ListaFuncionarios[i].nome);
+              printf("\nCPF: %s", ListaFuncionarios[i].cpf);
+              printf("\nIdade: %d", ListaFuncionarios[i].idade);
+              printf("\nEmail: %s", ListaFuncionarios[i].email);
+              printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
+              printf("\nSalario: %.2f", ListaFuncionarios[i].salario);
+            }
+          }
+          break;
+        default:
+          break;
+        }
       } while (op != 0);
       break;
     case 2:
