@@ -33,6 +33,7 @@ desenvolver um software que ira ajudar com o processo de gerenciamento do das fu
 - O programa em console foi desenvolvido sua maior parte em CODEBLOCKS, não utilizando nenhuma especie de database.
 - Para utilizar, clone o projeto (a maneira correta) e de um "open file" na main do projeto, em sua IDE (caso ela seja compativel com C ou esteja utilizando os devidos
 pacotes), aconselhamos o CODEBLOCKS.
+- Caso prefira, abra o arquivo "main.c" neste projeto, copie o conteudo e cole em sua IDE (que seja compativel com Linguagem C) e siga em frente. 
 - Assim que abrir, o Login necessario é: Usuario: admin | Senha: admin |
 - Após isso, aproveite navegando pelos menus e funcionalidades de software. 
 ## Criticas construtivas serão muito bem-vindas! 🧱
