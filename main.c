@@ -49,7 +49,7 @@ Cliente CadastroCliente(Cliente *clientes) {
   printf("Insira suas informações de acordo com o pedido: \n");
   printf("------------------------------------------------\n");
   printf("Informe seu cpf |sem pontuacoes|: \n");
-  while(retorno==1){
+  do{
   gets(cpfNovo);
   	for(i=0;i<20;i++){
   		if(strcmp(clientes[i].cpf, cpfNovo)==0){
@@ -61,7 +61,7 @@ Cliente CadastroCliente(Cliente *clientes) {
 			retorno = 0;
 		}
   	}
-  }
+  }while(retorno==1);
   strncpy(clienteNovo.cpf, cpfNovo, 50);
   fflush(stdin);
   printf("Informe seu nome: \n");
@@ -247,7 +247,7 @@ void main() {
               strncpy(funcionarioNovo.nome, nome, 50);
               fflush(stdin);
               printf("\nCPF: ");
-              while(retorno==1){
+              do{
   				gets(cpf);
   				for(i=0;i<20;i++){
   					if(strcmp(ListaFuncionarios[i].cpf, cpf)==0){
@@ -259,8 +259,8 @@ void main() {
 						retorno = 0;
 					}
   				}
-  			 }
-              
+  			 }while(retorno==1);
+
               strncpy(funcionarioNovo.cpf, cpf, 50);
               fflush(stdin);
               printf("\nEmail: ");
