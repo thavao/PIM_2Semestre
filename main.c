@@ -45,7 +45,7 @@ Cliente CadastroCliente() {
   system("cls");
   Cabecalho();
   printf("### Menu de Cadastro Cliente ###\n");
-  printf("Insira suas informaÁıes de acordo com o pedido: \n");
+  printf("Insira suas informa√ß√µes de acordo com o pedido: \n");
   printf("------------------------------------------------\n");
   printf("Informe seu cpf |sem pontuacoes|: \n");
   gets(cpfNovo);
@@ -58,7 +58,7 @@ Cliente CadastroCliente() {
   printf("Informe sua idade: \n");
   scanf("%d", & clienteNovo.idade);
   while (clienteNovo.idade <= 0 || clienteNovo.idade > 130) {
-    printf("Idade inv·lida informada, informe novamente: \n");
+    printf("Idade inv√°lida informada, informe novamente: \n");
     scanf("%d", & clienteNovo.idade);
   }
   fflush(stdin);
@@ -78,13 +78,13 @@ Cliente CadastroCliente() {
   printf("Informe seu peso: \n");
   scanf("%f", & clienteNovo.peso);
   while (clienteNovo.peso <= 0) {
-    printf("Peso inv·lido informado, informe novamente: ");
+    printf("Peso inv√°lido informado, informe novamente: ");
     scanf("%f", & clienteNovo.peso);
   }
   printf("Informe sua altura |em cm|: \n");
   scanf("%f", & clienteNovo.altura);
   while (clienteNovo.altura <= 0 || clienteNovo.altura > 300) {
-    printf("Altura inv·lida, informe novamente em m: ");
+    printf("Altura inv√°lida, informe novamente em m: ");
     scanf("%f", & clienteNovo.altura);
     clienteNovo.altura = clienteNovo.altura / 100;
   }
@@ -118,7 +118,7 @@ Cliente CadastroCliente() {
     printf("Sua taxa de consumo foi calculada e definica como: %d kcal por dia\n", clienteNovo.Alimentacao.caloriaDia);
     printf("Para manter-se em forma, coma o quanto voce gasta (taxa calculada) diariamente.\n");
     printf("Caso queira emagrecer coma 300g a menos, e se quiser engordar 300g a mais.\n");
-    printf("# LEMBRETE # Nosso app n„o substitui um acompanhamento profissional, mas ajuda a iniciar um processo de vida saudavel!\n");
+    printf("# LEMBRETE # Nosso app n√£o substitui um acompanhamento profissional, mas ajuda a iniciar um processo de vida saudavel!\n");
     printf("----------------------------------------------------------------------------\n");
   } else if (clienteNovo.sexo == 'F') {
     clienteNovo.Alimentacao.caloriaDia = (665.1 + (1.8 * (clienteNovo.altura * 100)) + (9.5 * clienteNovo.peso) - (4.7 * clienteNovo.idade)) / 100;
@@ -127,7 +127,7 @@ Cliente CadastroCliente() {
     printf("Sua taxa de consumo foi calculada e definica como: %d kcal por dia\n", clienteNovo.Alimentacao.caloriaDia);
     printf("Para manter-se em forma, coma o quanto voce gasta (taxa calculada) diariamente.\n");
     printf("Caso queira emagrecer coma 300g a menos, e se quiser engordar 300g a mais.\n");
-    printf("# LEMBRETE # Nosso app n„o substitui um acompanhamento profissional, mas ajuda a iniciar um processo de vida saudavel!\n");
+    printf("# LEMBRETE # Nosso app n√£o substitui um acompanhamento profissional, mas ajuda a iniciar um processo de vida saudavel!\n");
     printf("----------------------------------------------------------------------------\n");
   }
   return clienteNovo;
@@ -153,14 +153,14 @@ void FazerLogin() {
   do {
     Cabecalho();
     printf("\n ### Login Fast Diet ### \n");
-    printf("\nUsu·rio: ");
+    printf("\nUsu√°rio: ");
     scanf("%s", login1);
     printf("Senha: ");
     scanf("%s", senha1);
     if (strcmp(login, login1) != 0 || strcmp(senha, senha1) != 0) {
       system("cls");
       Cabecalho();
-      printf("\nLogin ou Senha inv·lidos, tente novamente!");
+      printf("\nLogin ou Senha inv√°lidos, tente novamente!");
       printf("\n## Tente Novamente ##\n");
       Pause();
     } else {
@@ -194,11 +194,11 @@ void main() {
     fflush(stdin);
     FazerLogin();
     Cabecalho();
-    printf("Escolha a ·rea que deseja utilizar: \n");
-    printf("[0]Fechar \n[1]Funcion·rios \n[2]Clientes \n");
+    printf("Escolha a √°rea que deseja utilizar: \n");
+    printf("[0]Fechar \n[1]Funcion√°rios \n[2]Clientes \n");
     scanf("%d", & escolha);
     while (escolha < 0 || escolha > 2) {
-      printf("OpÁ„o inv·lida, escolha entre [0], [1] ou [2]: \n");
+      printf("Op√ß√£o inv√°lida, escolha entre [0], [1] ou [2]: \n");
       scanf("%d", & escolha);
     }
     switch (escolha) {
@@ -207,10 +207,10 @@ void main() {
         opbusca = 0;
         system("cls");
         Cabecalho();
-        printf(" ### Menu inicial Funcion·rio ### \n");
-        printf("O que vocÍ gostaria de realizar: \n");
-        printf("[0]Voltar \n[1]Cadastrar Funcion·rio \n[2]Localizar Funcion·rio \n");
-        printf("[3]Editar \n[4]RelatÛrio de Funcion·rios \n[5]RelatÛrio de Sal·rios\n");
+        printf(" ### Menu inicial Funcion√°rio ### \n");
+        printf("O que voc√™ gostaria de realizar: \n");
+        printf("[0]Voltar \n[1]Cadastrar Funcion√°rio \n[2]Localizar Funcion√°rio \n");
+        printf("[3]Editar \n[4]Relat√≥rio de Funcion√°rios \n[5]Relat√≥rio de Sal√°rios\n");
         scanf("%d", & op);
         while (op < 0 || op > 5) {
           printf("Opcao invalida, insira outro valor: ");
@@ -227,7 +227,7 @@ void main() {
               system("cls");
               Cabecalho();
               printf("### Menu de registro ###\n");
-              printf("Insira as informaÁıes do funcion·rio de acordo com o pedido: \n");
+              printf("Insira as informa√ß√µes do funcion√°rio de acordo com o pedido: \n");
               printf("--------------------------------------------------------------\n");
               printf("\nNome: ");
               gets(nome);
@@ -248,15 +248,15 @@ void main() {
               scanf("%d", & funcionarioNovo.idade);
               while (funcionarioNovo.idade <= 0 || funcionarioNovo.idade > 130) {
                 fflush(stdin);
-                printf("Idade informada inv·lida, informe novamente: \n");
+                printf("Idade informada inv√°lida, informe novamente: \n");
                 scanf("%d", funcionarioNovo.idade);
               }
 
               fflush(stdin);
-              printf("\nInforme a pontuaÁ„o do cargo (1 a 5): ");
+              printf("\nInforme a pontua√ß√£o do cargo (1 a 5): ");
               scanf("%d", & funcionarioNovo.cargo);
               while (funcionarioNovo.cargo < 1 || funcionarioNovo.cargo > 5) {
-                printf("\nValor inv·lido, tente novamente: \n");
+                printf("\nValor inv√°lido, tente novamente: \n");
                 scanf("%d", & funcionarioNovo.cargo);
               }
               funcionarioNovo.salario = sm + (1500 * funcionarioNovo.cargo / 2);
@@ -265,7 +265,7 @@ void main() {
               funcionarioNovo.id = 1;
               ListaFuncionarios[i] = funcionarioNovo;
               i = MaxFuncionario;
-              printf("\nFuncion·rio cadastrado com sucesso!\n");
+              printf("\nFuncion√°rio cadastrado com sucesso!\n");
               system("pause");
             }
           }
@@ -274,7 +274,7 @@ void main() {
         case 2:
           system("cls");
           Cabecalho();
-          printf("### Busca de Funcion·rios ### \n");
+          printf("### Busca de Funcion√°rios ### \n");
           printf("-------------------------------------\n");
           fflush(stdin);
           printf("\nDeseja buscar por: |[1]-nome| ou |[2]-cpf| \n");
@@ -282,7 +282,7 @@ void main() {
           while (opbusca < 1 && opbusca > 2) {
             system("cls");
             Cabecalho();
-            printf("\nOpcao inv·lida!");
+            printf("\nOpcao inv√°lida!");
             system("pause");
             printf("\nDeseja buscar por: |[1]-nome| ou |[2]-cpf| \n");
             scanf("%d", & opbusca);
@@ -291,48 +291,48 @@ void main() {
           switch (opbusca) {
           case 1:
             fflush(stdin);
-            printf("\nDigite o nome do funcion·rio: ");
+            printf("\nDigite o nome do funcion√°rio: ");
             gets(nomeBusca);
             retorno = 0;
-            printf("\nExibindo Funcion·rio(s) com nome: %s\n", nomeBusca);
+            printf("\nExibindo Funcion√°rio(s) com nome: %s\n", nomeBusca);
             for (i = 0; i < MaxFuncionario; i++) {
               if (strcmp(nomeBusca, ListaFuncionarios[i].nome) == 0 && ListaFuncionarios[i].id == 1) {
-                printf("### Funcion·rio encontrado ### \n");
+                printf("### Funcion√°rio encontrado ### \n");
                 printf("\nNome: %s", ListaFuncionarios[i].nome);
                 printf("\nCPF: %s", ListaFuncionarios[i].cpf);
                 printf("\nIdade: %d", ListaFuncionarios[i].idade);
                 printf("\nEmail: %s", ListaFuncionarios[i].email);
                 printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
-                printf("\nSal·rio: %.2f\n", ListaFuncionarios[i].salario);
+                printf("\nSal√°rio: %.2f\n", ListaFuncionarios[i].salario);
                 retorno = 1;
               } else if (i + 1 == MaxFuncionario && retorno != 1) {
-                printf("\nNome n„o encontrado...\n");
+                printf("\nNome n√£o encontrado...\n");
               }
             }
             break;
           case 2:
             fflush(stdin);
-            printf("\nDigite o CPF do funcion·rio: ");
+            printf("\nDigite o CPF do funcion√°rio: ");
             gets(cpf);
             retorno = 0;
             for (i = 0; i < MaxFuncionario; i++) {
               if (strcmp(cpf, ListaFuncionarios[i].cpf) == 0 && ListaFuncionarios[i].id == 1) {
-                printf("### Funcion·rio encontrado ### \n");
+                printf("### Funcion√°rio encontrado ### \n");
                 printf("\nNome: %s", ListaFuncionarios[i].nome);
                 printf("\nCPF: %s", ListaFuncionarios[i].cpf);
                 printf("\nIdade: %d", ListaFuncionarios[i].idade);
                 printf("\nEmail: %s", ListaFuncionarios[i].email);
                 printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
-                printf("\nSal·rio: %.2f\n", ListaFuncionarios[i].salario);
+                printf("\nSal√°rio: %.2f\n", ListaFuncionarios[i].salario);
                 retorno = 1;
                 i = MaxFuncionario;
               } else if (i + 1 == MaxFuncionario && retorno != 1) {
-                printf("\nCPF n„o encontrado...\n");
+                printf("\nCPF n√£o encontrado...\n");
               }
             }
             break;
           default:
-            printf("\nValor Inv·lido...\n");
+            printf("\nValor Inv√°lido...\n");
             break;
           }
           system("pause");
@@ -340,96 +340,96 @@ void main() {
         case 3:
           system("cls");
           Cabecalho();
-          printf("### Editar InformaÁıes de Funcion·rios ### \n");
+          printf("### Editar Informa√ß√µes de Funcion√°rios ### \n");
           printf("------------------------------------------------\n");
           fflush(stdin);
           achou = 0;
           opbusca = 0;
-          printf("Digite o CPF do Funcion·rio que vocÍ deseja editar: \n");
+          printf("Digite o CPF do Funcion√°rio que voc√™ deseja editar: \n");
           gets(cpf);
 
           for (i = 0; i < MaxFuncionario; i++) {
             fflush(stdin);
             if (strcmp(cpf, ListaFuncionarios[i].cpf) == 0) {
-              printf("### Funcion·rio encontrado ### \n");
+              printf("### Funcion√°rio encontrado ### \n");
               printf("\nNome: %s", ListaFuncionarios[i].nome);
               printf("\nCPF: %s", ListaFuncionarios[i].cpf);
               printf("\nIdade: %d", ListaFuncionarios[i].idade);
               printf("\nEmail: %s", ListaFuncionarios[i].email);
               printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
-              printf("\nSal·rio: %.2f", ListaFuncionarios[i].salario);
+              printf("\nSal√°rio: %.2f", ListaFuncionarios[i].salario);
 
               fflush(stdin);
               achou = 1;
-              printf("\nQual informaÁ„o deseja alterar ?");
+              printf("\nQual informa√ß√£o deseja alterar ?");
               printf("\n[1]-Nome");
               printf("\n[2]-Email");
               printf("\n[3]-Telefone");
               printf("\n[4]-Idade");
-              printf("\n[5]-Sal·rio\n");
+              printf("\n[5]-Sal√°rio\n");
               scanf("%d", & opbusca);
               fflush(stdin);
               while (opbusca < 1 && opbusca > 5) {
-                printf("\nValor inv·lido, informe uma valor entre [1] e [5]: \n");
+                printf("\nValor inv√°lido, informe uma valor entre [1] e [5]: \n");
                 scanf("%d", & opbusca);
               }
               if (opbusca == 1) {
                 printf("\n### Alterar Nome ###\n");
                 fflush(stdin);
-                printf("\nDigite a nova informaÁ„o: ");
+                printf("\nDigite a nova informa√ß√£o: ");
                 gets(ListaFuncionarios[i].nome);
 
-                printf("InformaÁ„o atualizada!\n");
+                printf("Informa√ß√£o atualizada!\n");
               }
               if (opbusca == 2) {
                 printf("\n### Alterar Email ###\n");
                 fflush(stdin);
-                printf("\nDigite a nova informaÁ„o: ");
+                printf("\nDigite a nova informa√ß√£o: ");
                 gets(ListaFuncionarios[i].email);
 
-                printf("InformaÁ„o atualizada!\n");
+                printf("Informa√ß√£o atualizada!\n");
               }
               if (opbusca == 3) {
                 printf("\n### Alterar Telefone ###\n");
                 fflush(stdin);
-                printf("\nDigite a nova informaÁ„o: ");
+                printf("\nDigite a nova informa√ß√£o: ");
                 scanf("%d", & ListaFuncionarios[i].telefone);
-                printf("InformaÁ„o atualizada!\n");
+                printf("Informa√ß√£o atualizada!\n");
               }
               if (opbusca == 4) {
                 printf("\n### Alterar Idade ###\n");
                 fflush(stdin);
-                printf("\nDigite a nova informaÁ„o: ");
+                printf("\nDigite a nova informa√ß√£o: ");
                 scanf("%d", & ListaFuncionarios[i].idade);
-                printf("InformaÁ„o atualizada!\n");
+                printf("Informa√ß√£o atualizada!\n");
               }
               if (opbusca == 5) {
                 printf("\n### Alterar Cargo ###\n");
                 ListaFuncionarios[i].cargo = 0;
                 fflush(stdin);
-                printf("\nInforme a pontuaÁ„o do cargo (1 a 5): ");
+                printf("\nInforme a pontua√ß√£o do cargo (1 a 5): ");
                 scanf("%d", & ListaFuncionarios[i].cargo);
                 while (ListaFuncionarios[i].cargo < 1 || ListaFuncionarios[i].cargo > 5) {
-                  printf("\nValor inv·lido, tente novamente: \n");
+                  printf("\nValor inv√°lido, tente novamente: \n");
                   scanf("%d", & ListaFuncionarios[i].cargo);
                 }
                 ListaFuncionarios[i].salario = sm + (1500 * ListaFuncionarios[i].cargo / 2);
-                printf("\nSal·rio: %.2f\n", ListaFuncionarios[i].salario);
-                printf("InformaÁ„o atualizada!\n");
+                printf("\nSal√°rio: %.2f\n", ListaFuncionarios[i].salario);
+                printf("Informa√ß√£o atualizada!\n");
               }
               i = MaxFuncionario;
 
             }
           }
           if (achou == 0) {
-            printf("\nCPF n„o encontrado...\n");
+            printf("\nCPF n√£o encontrado...\n");
           }
           system("pause");
           break;
         case 4:
           system("cls");
           Cabecalho();
-          printf("### RelatÛrio de Funcion·rios ### \n");
+          printf("### Relat√≥rio de Funcion√°rios ### \n");
           printf("------------------------------------------------\n");
           fflush(stdin);
           for (i = 0; i < MaxFuncionario; i++) {
@@ -439,7 +439,7 @@ void main() {
               printf("\nIdade: %d", ListaFuncionarios[i].idade);
               printf("\nEmail: %s", ListaFuncionarios[i].email);
               printf("\nTelefone: %d", ListaFuncionarios[i].telefone);
-              printf("\nSal·rio: %.2f\n", ListaFuncionarios[i].salario);
+              printf("\nSal√°rio: %.2f\n", ListaFuncionarios[i].salario);
             }
           }
           system("pause");
@@ -447,7 +447,7 @@ void main() {
         case 5:
           system("cls");
           Cabecalho();
-          printf("### RelatÛrio de Sal·rios ### \n");
+          printf("### Relat√≥rio de Sal√°rios ### \n");
           printf("------------------------------------------------\n");
           fflush(stdin);
           for (i = 0; i < MaxFuncionario; i++) {
@@ -458,8 +458,8 @@ void main() {
             }
           }
           media = salariototal / contmedia;
-          printf("\nSoma de todos os sal·rios: %.2f", salariototal);
-          printf("\nMÈdia salarial: %.2f\n", media);
+          printf("\nSoma de todos os sal√°rios: %.2f", salariototal);
+          printf("\nM√©dia salarial: %.2f\n", media);
           system("pause");
           break;
         default:
@@ -473,13 +473,13 @@ void main() {
         fflush(stdin);
         Cabecalho();
         printf(" ### Menu inicial Cliente ### \n");
-        printf("O que vocÍ gostaria de realizar: \n");
+        printf("O que voc√™ gostaria de realizar: \n");
         printf("[0]Voltar \n[1]Cadastrar Cliente \n[2]Localizar Cliente \n");
-        printf("[3]Editar Cliente \n[4]RelatÛrio de Clientes \n[5]Ver Card·pio\n");
-        printf("[6]RelatÛrio de dados (clientes) \n");
+        printf("[3]Editar Cliente \n[4]Relat√≥rio de Clientes \n[5]Ver Card√°pio\n");
+        printf("[6]Relat√≥rio de dados (clientes) \n");
         scanf("%d", & op);
         while (op < 0 || op > 6) {
-          printf("OpÁ„o inv·lida, insira outro valor: ");
+          printf("Op√ß√£o inv√°lida, insira outro valor: ");
           scanf("%d", & op);
         }
         switch (op) {
@@ -523,7 +523,7 @@ void main() {
             }
           }
           if (achou == 0) {
-            printf("Cliente n„o cadastrado/encontrado, tente novamente: \n");
+            printf("Cliente n√£o cadastrado/encontrado, tente novamente: \n");
             Pause();
           }
           break;
@@ -550,7 +550,7 @@ void main() {
               printf("Deseja alterar qual dado do cliente: \n[1]Nenhum \n[2]Nome \n[3]Email \n[4]Idade \n");
               scanf("%d", & opc);
               while (opc < 1 || opc > 4) {
-                printf("Valor inv·lido digitado, informe um valor entre [1] e [4] \n");
+                printf("Valor inv√°lido digitado, informe um valor entre [1] e [4] \n");
                 scanf("%d", & opc);
               }
               if (opc == 2) {
@@ -592,7 +592,7 @@ void main() {
           if (achou == 0) {
             system("cls");
             Cabecalho();
-            printf("Cliente n„o cadastrado/encontrado, tente novamente: \n");
+            printf("Cliente n√£o cadastrado/encontrado, tente novamente: \n");
             Pause();
           }
           break;
@@ -614,7 +614,7 @@ void main() {
             clientes = 1;
           }
           if (clientes == 0) {
-            printf("N„o existem clientes cadastrados no momomento, \n");
+            printf("N√£o existem clientes cadastrados no momomento, \n");
           }
           Pause();
           break;
@@ -622,7 +622,7 @@ void main() {
           fflush(stdin);
           system("cls");
           Cabecalho();
-          printf("## Encontrar seu CARD¡PIO ## \n");
+          printf("## Encontrar seu CARD√ÅPIO ## \n");
           char cpfCardapio[50];
           achou = 0;
           printf("Informe o 'CPF' do Cliente que deseja encontrar: \n");
@@ -634,10 +634,10 @@ void main() {
               printf("### Cliente encontrado ### \n");
               printf("Nome: %s\n", & ListaClientes[i].nome);
               printf("Email: %s\n", & ListaClientes[i].email);
-              printf("Calorias di·rias: %d\n", ListaClientes[i].Alimentacao.caloriaDia);
+              printf("Calorias di√°rias: %d\n", ListaClientes[i].Alimentacao.caloriaDia);
               if (ListaClientes[i].Alimentacao.cardapio == 1) {
                 printf("\n");
-                printf("### Seu card·pio È do tipo 1 ### \n");
+                printf("### Seu card√°pio √© do tipo 1 ### \n");
                 printf("Ingredientes que indicamos: \n");
                 printf("- Batata Doce | 200g/dia \n");
                 printf("- Peixe Empanado | 300g/dia \n");
@@ -650,7 +650,7 @@ void main() {
                 printf("---------------------------------\n");
               } else if (ListaClientes[i].Alimentacao.cardapio == 2) {
                 printf("\n");
-                printf("### Seu card·pio È do tipo 2 ###\n");
+                printf("### Seu card√°pio √© do tipo 2 ###\n");
                 printf("Ingredientes que indicamos: \n");
                 printf("- Massas | 400g/dia \n");
                 printf("- Vegetais no geral | 200g/dia \n");
@@ -663,7 +663,7 @@ void main() {
                 printf("---------------------------------\n");
               } else if (ListaClientes[i].Alimentacao.cardapio == 3) {
                 printf("\n");
-                printf("### Seu card·pio È do tipo 3 ###\n");
+                printf("### Seu card√°pio √© do tipo 3 ###\n");
                 printf("Ingredientes que indicamos: \n");
                 printf("- Frutas (todas) | SemTotal/dia \n");
                 printf("- Vegetais no geral | 200g/dia \n");
@@ -681,7 +681,7 @@ void main() {
             }
           }
           if (achou == 0) {
-            printf("Cliente n„o cadastrado/encontrado, tente novamente! \n");
+            printf("Cliente n√£o cadastrado/encontrado, tente novamente! \n");
             Pause();
           }
           break;
@@ -704,19 +704,19 @@ void main() {
             i++;
           }
           if (idadeMedia == 0) {
-            printf("N„o existem clientes cadastrados!! \n");
+            printf("N√£o existem clientes cadastrados!! \n");
             system("pause");
           } else {
             printf("------------------------------------------------------------------------\n");
-            printf("O total de clientes (cadastrados) È de %d cliente(s) \n", totalclientes);
+            printf("O total de clientes (cadastrados) √© de %d cliente(s) \n", totalclientes);
             printf("------------------------------------------------------------------------\n");
-            printf("A mÈdia de idade dos clientes È: %d \n", idadeMedia / totalclientes);
+            printf("A m√©dia de idade dos clientes √©: %d \n", idadeMedia / totalclientes);
             printf("------------------------------------------------------------------------\n");
-            printf("A mÈdia de IMC dos clientes È: %.2f \n", imcMedio / totalclientes);
+            printf("A m√©dia de IMC dos clientes √©: %.2f \n", imcMedio / totalclientes);
             printf("------------------------------------------------------------------------\n");
-            printf("Sendo aproximadamente %d™ mulher(es) \n", qtdMulheres);
+            printf("Sendo aproximadamente %d¬™ mulher(es) \n", qtdMulheres);
             printf("------------------------------------------------------------------------\n");
-            printf("Sendo aproximadamente %d∞ homem(s) \n", QtdHomens);
+            printf("Sendo aproximadamente %d¬∞ homem(s) \n", QtdHomens);
             printf("------------------------------------------------------------------------\n");
             Pause();
           }
@@ -727,7 +727,7 @@ void main() {
       } while (op != 0);
       break;
     default:
-      printf("\nO programa ir· finalizar!\n");
+      printf("\nO programa ir√° finalizar!\n");
       Pause();
       break;
     }
